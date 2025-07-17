@@ -57,7 +57,7 @@ class MLP:
 
         for l in reversed(range(1, L)):
             delta = self.weights[f'W{l+1}'].T @ delta
-            delta = delta * relu_derivative(pre_activations[f'{l}'])
+            delta = delta * relu_derivative(pre_activations[f'Z{l}'])
 
             gradients[f'W{l}'] = 1/m * delta @ activations[f'A{l-1}'].T
             gradients[f'B{l}'] = 1/m * np.sum(delta, axis=1, keepdims=True)
@@ -68,4 +68,3 @@ class MLP:
         for i in range(1, self.n_of_layers):
             self.weights[f'W{i}'] -= learning_rate * gradients[f'W{i}']
             self.biases[f'B{i}'] -= learning_rate * gradients[f'B{i}']
-

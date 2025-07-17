@@ -18,12 +18,9 @@ def encode(labels, n_of_classes):
     encoded[labels, np.arange(m)] = 1
     return encoded
 
-def process_data(csv_path, shuffle=True, normalize=True):
+def process_data(csv_path, normalize=True):
     data = pd.read_csv(csv_path)
     data = np.array(data)
-
-    if shuffle:
-        np.random.shuffle(data)
     
     x = data[:, 1:].T
     y = data[:, 0]
