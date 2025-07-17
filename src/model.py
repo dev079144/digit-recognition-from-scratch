@@ -68,3 +68,26 @@ class MLP:
         for i in range(1, self.n_of_layers):
             self.weights[f'W{i}'] -= learning_rate * gradients[f'W{i}']
             self.biases[f'B{i}'] -= learning_rate * gradients[f'B{i}']
+
+    def save(self, path):
+        parameters = {}
+        for key, value in self.weights.items():
+            parameters[key] = value
+        for key, value in self.biases.items():
+            parameters[key] = value
+
+        np.savez(path, **parameters)
+
+    def load(self, path):
+        parameters = np.load(path)
+        weights = {}
+        biases = {}
+
+        for key in parameters.files:
+            if key in self.weights:
+                weights[key] = parameters[key]
+            elif key in self.biases:
+                biases[key] = parameters[key]
+
+        self.weights = weights
+        self.biases = biases
