@@ -2,7 +2,14 @@
 
 A basic neural network for handwritten digit recognition built with Python with NumPy
 
+## Demo Notebooks
+
+### Training
+
 Colab: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dev079144/digit-recognition/blob/main/notebooks/training.ipynb)
+
+### Inference
+Colab: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dev079144/digit-recognition/blob/main/notebooks/inference.ipynb?utm_source=github&utm_medium=badge&utm_campaign=readonly)
 
 ## Kaggle API Authorization
 
