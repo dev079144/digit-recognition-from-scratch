@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from utils import relu, relu_derivative, softmax
 
@@ -70,6 +71,14 @@ class MLP:
             self.biases[f'B{i}'] -= learning_rate * gradients[f'B{i}']
 
     def save(self, path):
+        name, extension = os.path.splitext(path)
+        unique_path = path
+        count = 2
+
+        while os.path.exists(unique_path):
+            unique_path = f'{name}_{count}{extension}'
+            count += 1
+
         parameters = {}
         for key, value in self.weights.items():
             parameters[key] = value
