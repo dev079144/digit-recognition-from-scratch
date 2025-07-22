@@ -2,49 +2,31 @@
 
 A basic neural network for handwritten digit recognition built with Python with NumPy
 
-## Demo Notebooks
+## Demo notebooks in Colab
 
-### Training
+[![Training](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dev079144/digit-recognition/blob/main/notebooks/training.ipynb)
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+[![Inference](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/dev079144/digit-recognition/blob/main/notebooks/inference.ipynb)
 
-### Inference
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+## How it works
 
-## Kaggle API Authorization
+An MLP model class is defined in the 'model' module with methods for initialization, forward and backward propagation, loss calculation, weight updating and saving and loading weights. The MNIST dataset is downloaded and converted to CSV for training and testing. A training loop is executed with hyperparameters set in a designated cell. Weights are optionally saved and later loaded by the model at inference.
 
-Download the MNIST dataset using the Kaggle API:
-
-1. Go to https://www.kaggle.com, generate API token and download `kaggle.json`
-2. Create a `.secrets/` folder in the project root, and move `kaggle.json` there
-3. Add this to your terminal before using Kaggle CLI:
-```
-export KAGGLE_CONFIG_DIR=$(pwd)/.secrets  # Mac/Linux
-```
-or
-```
-set KAGGLE_CONFIG_DIR=%cd%\.secrets       # Windows
-```
-
-4. Then download:
-```
-kaggle datasets download oddrationale/mnist-in-csv
-```
+The model is a standard n-layered MLP with customizable hidden layer configuration. ReLU is used as the activation function in the hidden layers, and Softmax is applied to the output layer. Both functions are defined in the 'utils' module. The loss function used is Categorical Cross-Entropy, implemented as a method in the model class within the 'model' module.
 
 ## .gitignore setup
 
 To avoid uploading secrets and large datasets to GitHub, add this to `.gitignore`:
 ```
-.secrets/
-data/mnist-in-csv/
+data/
 ```
 
 ## Run
 
 1. Clone the repo:
 ```
-git clone https://github.com/dev079144/digit-recognition-from-scratch.git
-cd digit-recognition-from-scratch
+git clone https://github.com/dev079144/digit-recognition.git
+cd digit-recognition
 ```
 
 2. Install dependencies:

@@ -2,3 +2,4 @@ numpy
 notebook
 pandas
 matplotlib
+python-mnist

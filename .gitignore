@@ -1,4 +1,2 @@
-.secrets/
-data/mnist-in-csv/
+data/
 venv/
-.env
