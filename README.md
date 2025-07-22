@@ -8,9 +8,9 @@ A basic neural network for handwritten digit recognition built with Python with 
 
 ## How it works
 
-An MLP model class is defined in the 'model' module with methods for initialization, forward and backward propagation, loss calculation, weight updating and saving and loading weights. The MNIST dataset is downloaded and converted to CSV for training and testing. A training loop is executed with hyperparameters set in a designated cell. Weights are optionally saved and later loaded by the model at inference.
-
 The model is a standard n-layered MLP with customizable hidden layer configuration. ReLU is used as the activation function in the hidden layers, and Softmax is applied to the output layer. Both functions are defined in the 'utils' module. The loss function used is Categorical Cross-Entropy, implemented as a method in the model class within the 'model' module.
+
+An MLP model class is defined in the 'model' module with methods for initialization, forward and backward propagation, loss calculation, weight updating and saving and loading weights. The MNIST dataset is downloaded and converted to CSV for training and testing. A training loop is executed with hyperparameters set in a designated cell. Weights are optionally saved and later loaded by the model at inference.
 
 ## .gitignore setup
 
